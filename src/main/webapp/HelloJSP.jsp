@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%!
 String str1 = "JSP";
-String str2 = "안녕하세요..";
+String str2 = "안녕하세요..!!";
 %>
 <!DOCTYPE html>
 <html>
