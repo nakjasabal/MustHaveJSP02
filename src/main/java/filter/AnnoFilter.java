@@ -15,23 +15,24 @@ import javax.servlet.http.HttpServletRequest;
 public class AnnoFilter implements Filter {
 
 	@Override
-	public void init(FilterConfig filterConfig) throws ServletException {
-		System.out.println("AnnoFilter -> init() 호출됨");
+	public void init(FilterConfig filterConfig) throws ServletException { 
+		/* 처리할 내용이 없다면 정의하지 않아도 됩니다. */		
 	}
 	
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
-		System.out.println("AnnoFilter -> doFilter() 호출됨");
-
-		String method = ((HttpServletRequest)request).getMethod();
-		System.out.println("method="+ method);
+		//getParameter() 는 형변환 없이도 사용가능함. 
+		String searchField = request.getParameter("searchField");
+		String searchWord = request.getParameter("searchWord");
+		System.out.println("검색필드 : "+ searchField);
+		System.out.println("검색어 : "+ searchWord);
 		
 		chain.doFilter(request, response);
 	}
 	
 	@Override
 	public void destroy() {
-		System.out.println("AnnoFilter -> destroy() 호출됨");
+		/* 처리할 내용이 없다면 정의하지 않아도 됩니다. */
 	}
 }

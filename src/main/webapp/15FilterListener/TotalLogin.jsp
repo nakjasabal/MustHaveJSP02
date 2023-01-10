@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>TotalLogin.jsp</title>
 </head>
 <body>
 	<h2>로그인 페이지</h2>
@@ -27,8 +27,8 @@
         }
     }
     </script>
-    <form action="" method="post" name="loginFrm" onsubmit="return validateForm(this);">
-    <input type="hidden" name="backUrl" value="<%=request.getParameter("backUrl") %>" />
+    <form method="post" name="loginFrm" onsubmit="return validateForm(this);">
+    <input type="hidden" name="backUrl" value="${ param.backUrl }" />
         아이디 : <input type="text" name="user_id" /><br />
         패스워드 : <input type="password" name="user_pw" /><br />
         <input type="submit" value="로그인하기" />

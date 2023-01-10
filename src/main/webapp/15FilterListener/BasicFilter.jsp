@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>BasicFilter.jsp</title>
 </head>
 <body>
 	<script>
@@ -18,9 +18,10 @@
 		f.submit();
 	}
 	</script>
+	<h2>web.xml에서 매핑하기</h2>
 	<form>
-		<input type="button" value="Get" onclick="formSubmit(this.form, 1);" />
-		<input type="button" value="Post" onclick="formSubmit(this.form, 2);" />
+		<input type="button" value="Get방식전송" onclick="formSubmit(this.form, 1);" />
+		<input type="button" value="Post방식전송" onclick="formSubmit(this.form, 2);" />
 	</form>
 </body>
 </html>

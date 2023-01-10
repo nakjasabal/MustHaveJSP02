@@ -23,7 +23,6 @@ public class LoginFilter implements Filter {
 			
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
-//		System.out.println("LoginFilter -> init() 호출됨");
 		application = filterConfig.getServletContext();			
 	}
 	
@@ -31,7 +30,6 @@ public class LoginFilter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response, 
 			FilterChain chain)
 			throws IOException, ServletException {
-//		System.out.println("LoginFilter -> doFilter() 호출됨");
 		HttpServletRequest req = (HttpServletRequest)request;
 		HttpServletResponse resp = (HttpServletResponse)response;
 		HttpSession session = req.getSession();
@@ -43,6 +41,7 @@ public class LoginFilter implements Filter {
 						
 		String method = req.getMethod();		
 		if(method.equals("POST")) {
+			//getParameter() 메서드는 req, request 둘다 사용가능함. 
 			String user_id = request.getParameter("user_id");
 			String user_pw = request.getParameter("user_pw");
 			String backUrl = request.getParameter("backUrl");
@@ -54,16 +53,18 @@ public class LoginFilter implements Filter {
 			if (memberDTO.getId() != null) {
 				session.setAttribute("UserId", memberDTO.getId()); 
 				session.setAttribute("UserName", memberDTO.getName());
-				if(backUrl!=null && !backUrl.equals("")) {
-					resp.sendRedirect(backUrl);
+				if(backUrl!=null && !backUrl.equals("")) {					
+					JSFunction.alertLocation(resp, "로그인 전 요청한 페이지로 이동합니다.", backUrl);
+					return;
 				}
 				else {
 					resp.sendRedirect("../15FilterListener/TotalLogin.jsp");
 				}
 			}
 			else {
-				JSFunction.alertBack(resp, "로그인 실패");
-				return;
+				request.setAttribute("LoginErrMsg", "로그인에 실패했습니다.");
+				req.getRequestDispatcher("../15FilterListener/TotalLogin.jsp")
+					.forward(req, resp);
 			}
 		}
 		else if(method.equals("GET")) {			
@@ -74,9 +75,4 @@ public class LoginFilter implements Filter {
 		}
 		chain.doFilter(request, response);
 	}
-
-//	@Override
-//	public void destroy() {
-//		System.out.println("LoginFilter -> destroy() 호출됨");
-//	}
 }

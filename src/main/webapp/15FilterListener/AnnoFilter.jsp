@@ -4,23 +4,24 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>AnnoFilter.jsp</title>
 </head>
 <body>
 	<script>
-	function formSubmit(f, met){
-		if(met==1){
-			f.method="get";			
+	function formSubmit(f){
+		if(f.searchWord.value==""){
+			alert("검색어를 입력하세요.");
+			return false;
 		}
-		else if(met==2){
-			f.method="post";		
-		}
-		f.submit();
 	}
 	</script>
-	<form action="">
-		<input type="button" value="Get" onclick="formSubmit(this.form, 1);" />
-		<input type="button" value="Post" onclick="formSubmit(this.form, 2);" />
+	<form onsubmit="return formSubmit(this);">
+		<select name="searchField">
+			<option value="title">제목</option>
+			<option value="content">내용</option>
+		</select>
+		<input type="text" name="searchWord" value="필터설정하기" />
+		<input type="submit" value="검색하기" />
 	</form>
 </body>
 </html>

@@ -1,34 +1,14 @@
 package listener;
 
-import java.util.Enumeration;
-
-import javax.servlet.ServletContextEvent;
-import javax.servlet.ServletContextListener;
+import javax.servlet.annotation.WebListener;
 import javax.servlet.http.HttpSessionAttributeListener;
 import javax.servlet.http.HttpSessionBindingEvent;
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
 
-public class MyListener implements ServletContextListener, 
-		HttpSessionListener, 
-		HttpSessionAttributeListener {
+@WebListener
+public class SessionListener implements HttpSessionListener, HttpSessionAttributeListener {
 
-	@Override
-	public void contextInitialized(ServletContextEvent sce) {				
-		Enumeration<String> apps = sce.getServletContext().getInitParameterNames();
-		while(apps.hasMoreElements()) {
-			System.out.println("[리스너]컨텍스트 초기화 매개변수 생성:"+ apps.nextElement());
-		}	
-	}
-
-	@Override
-	public void contextDestroyed(ServletContextEvent sce) {
-			Enumeration<String> apps = sce.getServletContext().getInitParameterNames();
-			while(apps.hasMoreElements()) {
-				System.out.println("[리스너]컨텍스트 초기화 매개변수 소멸:"+ apps.nextElement());
-			}
-	}
-	
 	@Override
 	public void sessionCreated(HttpSessionEvent se) {
 		System.out.println("[리스너]세션 생성:"+ se.getSession().getId());			
@@ -37,7 +17,6 @@ public class MyListener implements ServletContextListener,
 	@Override
 	public void sessionDestroyed(HttpSessionEvent se) {
 		System.out.println("[리스너]세션 소멸:"+se.getSession().getId());
-			 
 	}
 	
 	@Override

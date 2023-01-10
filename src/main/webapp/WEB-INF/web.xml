@@ -145,9 +145,7 @@
     <param-value>ws://localhost:8081/MustHaveJSP</param-value>
   </context-param>   
   
-  
-  
-  
+  <!-- 필터1 -->
   <filter>
 	<filter-name>BasicFilter</filter-name>
 	<filter-class>filter.BasicFilter</filter-class>
@@ -161,6 +159,7 @@
 	<url-pattern>/15FilterListener/BasicFilter.jsp</url-pattern>
   </filter-mapping>
   
+  <!-- 필터2 -->
   <filter>
 	<filter-name>LoginFilter</filter-name>
 	<filter-class>filter.LoginFilter</filter-class>
@@ -170,16 +169,9 @@
 	<url-pattern>/15FilterListener/TotalLogin.jsp</url-pattern>
   </filter-mapping>
   
-  
-  
-  
+  <!-- 리스너 -->
   <listener>
-  	<listener-class>listener.MyListener</listener-class>
+  	<listener-class>listener.ContextListener</listener-class>
   </listener>
-
- 
-  
-  
-  
   
 </web-app>

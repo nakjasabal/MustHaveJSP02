@@ -25,7 +25,7 @@ function formSubmit(f, num){
 </script>
 </head>
 <body>
-	<h2>리스너 활용하기</h2>
+	<h2>리스너 활용하기</h2> 
 	<form action="">
 		<input type="hidden" name="mode" />
 		<input type="button" value="session영역저장" onclick="formSubmit(this.form, 1);"/>
