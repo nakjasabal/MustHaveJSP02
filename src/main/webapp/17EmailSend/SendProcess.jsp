@@ -27,7 +27,7 @@ else if (format.equals("html")) {
     String htmlContent = ""; // HTML용으로 변환된 내용을 담을 변수
     try {
         // HTML 메일용 템플릿 파일 읽기
-        String templatePath = application.getRealPath("/16EmailSend/MailForm.html");
+        String templatePath = application.getRealPath("/17EmailSend/MailForm.html");
         BufferedReader br = new BufferedReader(new FileReader(templatePath));
 
         // 한 줄씩 읽어 htmlContent 변수에 저장
