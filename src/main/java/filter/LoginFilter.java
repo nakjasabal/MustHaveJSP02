@@ -9,6 +9,7 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -17,6 +18,7 @@ import membership.MemberDAO;
 import membership.MemberDTO;
 import utils.JSFunction;
 
+@WebFilter(filterName="LoginFilter", urlPatterns="/15FilterListener/LoginFilter.jsp")
 public class LoginFilter implements Filter {
 
 	ServletContext application; 
@@ -58,12 +60,12 @@ public class LoginFilter implements Filter {
 					return;
 				}
 				else {
-					resp.sendRedirect("../15FilterListener/TotalLogin.jsp");
+					resp.sendRedirect("../15FilterListener/LoginFilter.jsp");
 				}
 			}
 			else {
 				request.setAttribute("LoginErrMsg", "로그인에 실패했습니다.");
-				req.getRequestDispatcher("../15FilterListener/TotalLogin.jsp")
+				req.getRequestDispatcher("../15FilterListener/LoginFilter.jsp")
 					.forward(req, resp);
 			}
 		}

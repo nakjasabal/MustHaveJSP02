@@ -29,7 +29,7 @@ public class IsSessionFilter implements Filter {
 			String backUrl = req.getRequestURI();
 			JSFunction.alertLocation(resp, 
 				"[Filter]로그인 후 이용해주십시오.", 
-				"../15FilterListener/TotalLogin.jsp?backUrl="+backUrl);
+				"../15FilterListener/LoginFilter.jsp?backUrl="+backUrl);
 			return;
 		}
 		else {

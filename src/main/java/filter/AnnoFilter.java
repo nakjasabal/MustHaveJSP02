@@ -9,9 +9,9 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
-import javax.servlet.http.HttpServletRequest;
 
-@WebFilter(filterName="AnnoFilter", urlPatterns={"/15FilterListener/AnnoFilter.jsp"})
+@WebFilter(filterName="AnnoFilter", 
+	urlPatterns="/15FilterListener/AnnoFilter.jsp")
 public class AnnoFilter implements Filter {
 
 	@Override
@@ -22,7 +22,7 @@ public class AnnoFilter implements Filter {
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
-		//getParameter() 는 형변환 없이도 사용가능함. 
+
 		String searchField = request.getParameter("searchField");
 		String searchWord = request.getParameter("searchWord");
 		System.out.println("검색필드 : "+ searchField);

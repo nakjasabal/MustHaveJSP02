@@ -6,7 +6,7 @@ import javax.servlet.http.HttpSessionBindingEvent;
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
 
-@WebListener
+/*@WebListener*/
 public class SessionListener implements HttpSessionListener, HttpSessionAttributeListener {
 
 	@Override
