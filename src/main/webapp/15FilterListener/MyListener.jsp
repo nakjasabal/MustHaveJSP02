@@ -11,7 +11,7 @@ else if(mode!=null && mode.equals("2")){
 else if(mode!=null && mode.equals("3")){
 	session.invalidate();
 }
-%>   
+%>
 <!DOCTYPE html>
 <html>
 <head>

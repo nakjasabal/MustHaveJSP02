@@ -4,10 +4,6 @@ import java.util.Enumeration;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
-import javax.servlet.http.HttpSessionAttributeListener;
-import javax.servlet.http.HttpSessionBindingEvent;
-import javax.servlet.http.HttpSessionEvent;
-import javax.servlet.http.HttpSessionListener;
 
 public class ContextListener implements ServletContextListener {
 
@@ -26,4 +22,4 @@ public class ContextListener implements ServletContextListener {
 			System.out.println("[리스너]컨텍스트 초기화 매개변수 소멸:"+ apps.nextElement());
 		}
 	}
-}
+} 
