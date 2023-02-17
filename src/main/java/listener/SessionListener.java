@@ -11,14 +11,14 @@ public class SessionListener implements HttpSessionListener {
 	
 	@Override
 	public void sessionCreated(HttpSessionEvent se) {
-		this.sessionCount++;
+		sessionCount++;
 		System.out.println("[리스너]세션 생성:"+ se.getSession().getId());	
 		System.out.println("[리스너]세션카운트:"+ this.sessionCount);
 	}
 
 	@Override
 	public void sessionDestroyed(HttpSessionEvent se) {
-		this.sessionCount--;
+		sessionCount--;
 		System.out.println("[리스너]세션 소멸:"+ se.getSession().getId());
 		System.out.println("[리스너]세션카운트:"+ this.sessionCount);
 	}

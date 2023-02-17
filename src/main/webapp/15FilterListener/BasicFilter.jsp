@@ -8,14 +8,14 @@
 </head>
 <body>
 	<script>
-	function formSubmit(f, met){
-		if(met==1){
-			f.method="get";			
+	function formSubmit(form, methodType){
+		if(methodType==1){
+			form.method="get";			
 		}
-		else if(met==2){
-			f.method="post";		
+		else if(methodType==2){
+			form.method="post";		
 		}
-		f.submit();
+		form.submit();
 	}
 	</script>
 	<h2>web.xml에서 매핑하기</h2>
