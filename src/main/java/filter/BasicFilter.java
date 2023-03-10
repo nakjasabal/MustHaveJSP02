@@ -1,5 +1,5 @@
 package filter;
- 
+
 import java.io.IOException;
 
 import javax.servlet.Filter;
@@ -8,7 +8,6 @@ import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
-import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 
 public class BasicFilter implements Filter {
@@ -17,9 +16,9 @@ public class BasicFilter implements Filter {
 	
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
-		this.config = filterConfig;
+		config = filterConfig;
 		String filterName = filterConfig.getFilterName();
-		System.out.println("필터이름 : "+ filterName);		
+		System.out.println("BasicFilter -> init() 호출됨 : "+ filterName);		
 	}
 	
 	@Override
@@ -27,11 +26,11 @@ public class BasicFilter implements Filter {
 			FilterChain chain)
 					throws IOException, ServletException {
 		String filterInitParam = config.getInitParameter("FILTER_INIT_PARAM");
-		System.out.println("필터 초기화 매개변수 : "+ filterInitParam);
+		System.out.println("BasicFilter -> 초기화 매개변수 : "+ filterInitParam);
 		
-//		String method = request.getMethod(); 에러발생됨. 반드시 형변환해야함. 
+//		String method = request.getMethod(); 에러발생됨. 형변환 후 호출할 수 있음.  
 		String method = ((HttpServletRequest)request).getMethod();
-		System.out.println("전송방식 : "+ method);
+		System.out.println("BasicFilter -> 전송방식 : "+ method);
 		
 		chain.doFilter(request, response);
 	}

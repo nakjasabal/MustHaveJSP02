@@ -11,16 +11,16 @@ else if(mode!=null && mode.equals("2")){
 else if(mode!=null && mode.equals("3")){
 	session.invalidate();
 }
-%>   
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>MyListener.jsp</title>
 <script>
-function formSubmit(f, num){
-	f.mode.value = num;
-	f.submit();
+function formSubmit(form, modeValue){
+	form.mode.value = modeValue;
+	form.submit();
 }
 </script>
 </head>
@@ -28,9 +28,9 @@ function formSubmit(f, num){
 	<h2>리스너 활용하기</h2> 
 	<form>
 		<input type="hidden" name="mode" />
-		<input type="button" value="session저장" onclick="formSubmit(this.form, 1);"/>
-		<input type="button" value="session삭제" onclick="formSubmit(this.form, 2);"/>
-		<input type="button" value="session전체삭제" onclick="formSubmit(this.form, 3);"/>
+		<input type="button" value="세션 속성 저장" onclick="formSubmit(this.form, 1);"/>
+		<input type="button" value="세션 속성 삭제" onclick="formSubmit(this.form, 2);"/>
+		<input type="button" value="세션 전체 삭제" onclick="formSubmit(this.form, 3);"/>
 	</form>
 </body>
 </html>

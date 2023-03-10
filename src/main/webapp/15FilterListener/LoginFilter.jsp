@@ -4,10 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>TotalLogin.jsp</title>
+<title>LoginFilter.jsp</title>
 </head>
 <body>
-	<h2>로그인 페이지</h2>
+	<h2>로그인 페이지[Filter]</h2>
     <span style="color: red; font-size: 1.2em;"> 
         <%= request.getAttribute("LoginErrMsg") == null ?
                 "" : request.getAttribute("LoginErrMsg") %>
@@ -34,7 +34,7 @@
         <input type="submit" value="로그인하기" />
     </form>
     <%
-    } else { // 로그인된 상태
+    } else { 
     %>
         <%= session.getAttribute("UserName") %> 회원님, 로그인하셨습니다.<br />
         <a href="?mode=logout">[로그아웃]</a>
