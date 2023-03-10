@@ -21,20 +21,18 @@ try{
 	List<FileItem> params = servletFileUpload.parseRequest(request);
 	for(FileItem fileItem : params){
 		if(fileItem.isFormField()){
-			String title = fileItem.getString(encoding);
-			out.println("파일외폼값:"+ title +"<br>");
 			String fieldName = fileItem.getFieldName();
-			out.println("fieldName:"+ fieldName +"<br>");
+			String fieldValue = fileItem.getString(encoding);
+			System.out.printf("input의 name=>value : %s => %s %n", fieldName, fieldValue);
 		}
 		else{
 			String fileName = fileItem.getName();
-			out.println("파일명:"+ fileName +"<br>");
 			
 			String uuid = UUID.randomUUID().toString().replaceAll("-","");
 			String ext = fileName.substring(fileName.lastIndexOf('.'));
 			String newFileName = uuid + ext;
 			
-			File uploadFile = new File(saveDir +  File.separator + newFileName);
+			File uploadFile = new File(saveDir + File.separator + newFileName);
 			fileItem.write(uploadFile);
 		}
 	}
