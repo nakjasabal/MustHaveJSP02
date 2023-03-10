@@ -19,7 +19,7 @@
             return false;
         }
     }
-</script>
+</script> 
 <body>
     <h3>다중 파일 업로드</h3>
     <span style="color: red;">${errorMessage }</span>

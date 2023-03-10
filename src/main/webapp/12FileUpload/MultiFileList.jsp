@@ -15,7 +15,7 @@
 	File file = new File(saveDirectory);
 	File[] fileArray = file.listFiles();
     %>
-    <table border="1">
+    <table border="1"> 
         <tr>            
             <th>No</th><th>파일명</th><th>용량</th><th></th>
         </tr>
