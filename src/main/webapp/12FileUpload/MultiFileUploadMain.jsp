@@ -32,7 +32,7 @@
             <input type="checkbox" name="cate" value="과제" />과제 
             <input type="checkbox" name="cate" value="워드" />워드 
             <input type="checkbox" name="cate" value="음원" />음원 <br /> 
-        첨부파일(2개이상선택가능) : <input type="file" name="attachedFile" multiple /> <br />
+        첨부파일(다중선택가능) : <input type="file" name="attachedFile" multiple /> <br />
         <input type="submit" value="전송하기" />
     </form>
 </body>

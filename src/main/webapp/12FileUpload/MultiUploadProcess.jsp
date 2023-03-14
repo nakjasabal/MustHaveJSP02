@@ -7,14 +7,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-int maxPostSize = 1024 * 1000;
-String encoding = "UTF-8";
-String saveDirectory = application.getRealPath("/Uploads");  // 저장할 디렉터리
+String saveDirectory = application.getRealPath("/Uploads");  
 File saveDir = new File(saveDirectory);
 
 DiskFileItemFactory fileItemFactory = new DiskFileItemFactory();
 fileItemFactory.setRepository(saveDir);
-fileItemFactory.setSizeThreshold(maxPostSize);
+fileItemFactory.setSizeThreshold(1024 * 1000);
 ServletFileUpload servletFileUpload = new ServletFileUpload(fileItemFactory);
  
 try{
@@ -22,8 +20,8 @@ try{
 	for(FileItem fileItem : params){
 		if(fileItem.isFormField()){
 			String fieldName = fileItem.getFieldName();
-			String fieldValue = fileItem.getString(encoding);
-			System.out.printf("input의 name=>value : %s => %s %n", fieldName, fieldValue);
+			String fieldValue = fileItem.getString("UTF-8");
+			System.out.printf("name=>value : %s=>%s %n", fieldName, fieldValue);
 		}
 		else{
 			String fileName = fileItem.getName();
