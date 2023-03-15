@@ -17,14 +17,14 @@
     %>
     <table border="1"> 
         <tr>            
-            <th>No</th><th>파일명</th><th>용량</th><th></th>
+            <th>이미지</th><th>파일명</th><th>용량</th><th></th>
         </tr>
     <%
     int cnt = 1;
     for (File f : fileArray) {
     %>
         <tr>             
-            <td><%= cnt++ %></td>            
+            <td><img src="../Uploads/<%= f.getName() %>" width="200" /></td>            
             <td><%= f.getName() %></td>            
             <td><%= (int)Math.ceil(f.length()/1024.0) %>KB</td>
             <td><a href="Download.jsp?oName=<%= URLEncoder.encode("원본파일명.jpg","UTF-8") %>&sName=<%= URLEncoder.encode(f.getName(),"UTF-8") %>">[다운로드]</a></td>
