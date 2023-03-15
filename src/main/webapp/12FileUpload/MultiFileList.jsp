@@ -8,7 +8,7 @@
 <html>
 <head><title>MultiFileUpload</title></head>
 <body>
-    <h2>디렉토리에 저장된 파일 목록 보기</h2>
+    <h2>디렉터리에 저장된 파일 목록 보기</h2>
     <a href="MultiFileUploadMain.jsp">다중 파일 등록하기</a>
     <%
     String saveDirectory = application.getRealPath("/Uploads");
